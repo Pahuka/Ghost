@@ -7,7 +7,12 @@ namespace hashes
 		IFactory<Document>, IFactory<Vector>, IFactory<Segment>, IFactory<Cat>, IFactory<Robot>, 
 		IMagic
 	{
-		public void DoMagic()
+        public Document Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DoMagic()
 		{
 		}
 
@@ -26,6 +31,16 @@ namespace hashes
 			throw new NotImplementedException();
 		}
 
-		// И так даллее по аналогии...
-	}
+        Cat IFactory<Cat>.Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        Robot IFactory<Robot>.Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        // И так даллее по аналогии...
+    }
 }

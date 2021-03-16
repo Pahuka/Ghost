@@ -9,6 +9,7 @@ namespace hashes
 	{
 		public void DoMagic()
 		{
+
 		}
 
 		// Чтобы класс одновременно реализовывал интерфейсы IFactory<A> и IFactory<B> 

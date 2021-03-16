@@ -26,6 +26,21 @@ namespace hashes
 			throw new NotImplementedException();
 		}
 
-		// И так даллее по аналогии...
-	}
+        Document IFactory<Document>.Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        Cat IFactory<Cat>.Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        Robot IFactory<Robot>.Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        // И так даллее по аналогии...
+    }
 }

@@ -8,8 +8,9 @@ namespace hashes
 		IFactory<Document>, IFactory<Vector>, IFactory<Segment>, IFactory<Cat>, IFactory<Robot>, 
 		IMagic
 	{
-        //List<T> list = new List<GhostsTask>();
+        //List<Cat> list = new List<Cat>();
         int hash = 0;
+        byte[] content = new byte[] { 1, 2, 3 };
         private Cat cat;
         private Vector vector;
         private Robot robot;
@@ -24,9 +25,13 @@ namespace hashes
 
         public void DoMagic()
 		{
-                Cat1.Rename("Tim");
-                this.GetHashCode();
-		}
+            if (this.Cat1 != null) Cat1.Rename("Tim");
+            if (this.Vector != null) Vector.Add(new Vector(3.0, 4));
+            if (this.Robot != null) Robot.Move(4, 5.5);
+            if (this.Doc != null) content[0] = 3;
+            if (this.Segment1 != null) Cat1.Rename("Tim");
+            GetHashCode();
+        }
 
 		// Чтобы класс одновременно реализовывал интерфейсы IFactory<A> и IFactory<B> 
 		// придется воспользоваться так называемой явной реализацией интерфейса.
@@ -46,7 +51,8 @@ namespace hashes
 
         Document IFactory<Document>.Create()
         {
-            Doc = new Document("test", Encoding.ASCII, new byte[] { 1, 2, 3 });
+            Doc = new Document("test", Encoding.ASCII, content);
+            hash = Doc.GetHashCode();
             return Doc;
         }
 
